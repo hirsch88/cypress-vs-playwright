@@ -1,1 +1,17 @@
-<app-nx-welcome></app-nx-welcome> <router-outlet></router-outlet>
+<bal-app class="has-sticky-footer" data-testid="app">
+  <header>
+    <!-- Header content -->
+  </header>
+  <main class="container">
+    <!-- Your application content -->
+    <bal-heading>Welcome app-playwright</bal-heading>
+    <bal-button (click)="setToday()">Set today</bal-button>
+    <bal-field>
+      <bal-field-label>Date</bal-field-label>
+      <bal-field-control>
+        <bal-date data-testid="date-input" [value]="date()" placeholder="Enter Date"></bal-date>
+      </bal-field-control>
+    </bal-field>
+    <router-outlet></router-outlet>
+  </main>
+</bal-app>

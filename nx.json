@@ -44,6 +44,11 @@
           "codeCoverage": true
         }
       }
+    },
+    "@nx/js:tsc": {
+      "cache": true,
+      "dependsOn": ["^build"],
+      "inputs": ["production", "^production"]
     }
   },
   "plugins": [
@@ -77,5 +82,10 @@
       "unitTestRunner": "jest"
     }
   },
-  "nxCloudAccessToken": "YTM4NDgwNTEtZDVjYS00NGM4LWFmMmEtYzkwM2ExOTk2MDM4fHJlYWQtd3JpdGU="
+  "nxCloudAccessToken": "YTM4NDgwNTEtZDVjYS00NGM4LWFmMmEtYzkwM2ExOTk2MDM4fHJlYWQtd3JpdGU=",
+  "release": {
+    "version": {
+      "preVersionCommand": "npx nx run-many -t build"
+    }
+  }
 }

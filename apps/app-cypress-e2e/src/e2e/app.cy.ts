@@ -1,13 +1,18 @@
-import { getGreeting } from '../support/app.po';
 
 describe('app-cypress-e2e', () => {
-  beforeEach(() => cy.visit('/'));
-
-  it('should display welcome message', () => {
-    // Custom command example, see `../support/commands.ts` file
-    cy.login('my-email@something.com', 'myPassword');
-
-    // Function helper example, see `../support/app.po.ts` file
-    getGreeting().contains(/Welcome/);
+  it('has title', () => {
+    cy.visit('/')
+    cy.get('h1').contains(/Welcome/);
   });
+
+
+  it('select today', () => {
+    cy.visit('/')
+
+    const dateEl = '[data-testid="bal-date-input"]'
+
+    cy.get(dateEl).type('2.3.2024')
+    cy.get(dateEl).should('have.value', '02.03.2024')
+  });
+
 });
